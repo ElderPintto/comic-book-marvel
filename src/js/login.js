@@ -35,6 +35,7 @@ class login {
         });
 
         _self.SetUserStorege(_self.localSpeople);
+        _self.redirectCatalog();
       } else {
         console.log("incorrect username or password");
       }
@@ -44,6 +45,10 @@ class login {
   SetUserStorege(user) {
     let userStorage = JSON.stringify(user);
     localStorage.setItem("logged", userStorage);
+  }
+
+  redirectCatalog(){
+    window.location.replace("http://localhost:9000/catalog.html");
   }
 
   binding() {
