@@ -1,4 +1,5 @@
 import $ from "jquery";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 // http://www.mocky.io/v2/5c39120f3100005d00a992bf
 
 
@@ -7,7 +8,7 @@ import $ from "jquery";
     constructor() {
       this.localSpeople = [];
       this.init();
-      //this.autoLogin();
+
     }
     
     getUsers(username,password) {
@@ -39,8 +40,14 @@ import $ from "jquery";
 
           _self.SetUserStorege(_self.localSpeople);
           _self.redirectCatalog();
+
         } else {
-          console.log("incorrect username or password");
+
+          Swal({
+            title: 'incorrect username or password',
+            text: 'Do you want to continue',
+            type: 'error',
+          })
         }
       });
     }
@@ -56,6 +63,7 @@ import $ from "jquery";
     }
 
     autoLogin() {
+
       let _self = this;
       let logged = localStorage.getItem("logged");
       
@@ -108,6 +116,10 @@ import $ from "jquery";
 
     init() {
       this.bindEvents();
+      
+      if($('body').hasClass('home')){
+        this.autoLogin();
+      }
     }
   }
 
