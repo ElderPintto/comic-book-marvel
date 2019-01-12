@@ -1,0 +1,15 @@
+.login {
+
+    .logo {
+        display: block;
+    }
+
+    form {
+        justify-content: center;
+    }
+
+    &__form {
+        width: 100%;
+        margin-top: 5%;
+    }
+}
