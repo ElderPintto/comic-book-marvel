@@ -1,4 +1,5 @@
 .commicbook {
+    $this: &;
 
     &__titleSection {
         font-size: 3rem;
@@ -14,6 +15,7 @@
         flex-wrap: wrap;
         list-style: none;
         padding: 0;
+        margin: 0;
     }
     
     &__item {
@@ -21,6 +23,7 @@
         flex-direction: row;
         justify-content: center;
         text-align: center;
+        position: relative;
 
         margin-bottom: 1rem;
         
@@ -30,6 +33,17 @@
         
         @include media-breakpoint-only(md) {
             width: 33.333%;
+        }
+
+        &.isFavorite {
+            #{$this}__favorite{
+                background: var(--warning);
+            }
+
+            #{$this}__img{
+                background: var(--warning);
+                padding: 10px;
+            }
         }
     }
     
@@ -65,5 +79,20 @@
         font-size: 1rem;
         display: block;
         letter-spacing: 1px;
+    }
+
+    &__favorite {
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 15px;
+        z-index: 1;
+        width: 30px;
+        height: 30px;
+        background: var(--warning);
+        font-size: 26px;
+        line-height: 31px;
+        color: #fff;
     }
 }
