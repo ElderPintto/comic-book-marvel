@@ -1,0 +1,8 @@
+.formLogin {
+    &__item {
+        margin: 0.5rem;
+        @include media-breakpoint-only(xs) {
+            width: 100%;
+        }
+    }
+}

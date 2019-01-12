@@ -1,0 +1,49 @@
+// @include media-breakpoint-only(xs) { ... }
+// @include media-breakpoint-only(sm) { ... }
+// @include media-breakpoint-only(md) { ... }
+// @include media-breakpoint-only(lg) { ... }
+// @include media-breakpoint-only(xl) { ... }
+
+.header {
+    background: #000;
+    padding: 1rem;
+    height: auto;
+    min-height: 90px;
+
+    &__logo {
+        color: red;
+    }
+
+
+    &__form {
+        display: flex;
+        justify-content: flex-end;
+        
+        @include media-breakpoint-only(md) {
+            justify-content: center;
+        }
+    }
+
+    .logo {
+        display: block;
+        
+        @include media-breakpoint-only(xs) {
+            min-height: 48px;
+            margin-bottom: 1rem;
+        }
+        @include media-breakpoint-only(md) {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        @include media-breakpoint-only(xl) {
+            max-height: 61px;
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+.main {
+    margin: 3rem 0;
+    height: auto;
+}
