@@ -95,7 +95,7 @@ import $ from "jquery";
         _self.getUsers(valName, valPass);
       });
 
-      $('.form').on('click', '#logout', _self.logout)
+      $('.form').on('click', '#logout', _self.logout);
 
       $(document).ready(function() {
 
