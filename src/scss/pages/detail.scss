@@ -1,0 +1,22 @@
+.detail {
+
+    &__infoArea{
+
+        &--img {
+
+            &.isFavorite {
+                background: var(--warning);
+                padding-top: 15px;
+            }
+        }
+    }
+
+    &__favorite {
+        margin-top: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        text-align: center;
+        line-height: 50px;
+    }
+}

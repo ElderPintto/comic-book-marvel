@@ -1,0 +1,29 @@
+.characters {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__text {
+        font-size: 15px;
+        color: red;
+    }
+
+    &__item {
+        flex: 0 0 20%;
+        background: #000;
+        margin-bottom: 10px;
+        color: #fff;
+        text-align: center;
+        margin: 1%;
+
+        @include media-breakpoint-only(xs) {
+            flex: 0 0 45%
+        }
+
+        @include media-breakpoint-only(md) {
+            flex: 0 0 30%
+        }
+    }
+}

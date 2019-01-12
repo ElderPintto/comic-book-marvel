@@ -25,6 +25,8 @@ class Favorite {
 
     renderStatusFavorited(){
         let _self = this;
+
+        //shelf
         this.favoritesList.forEach(function(item){
             console.log(item)
             $('.commicbook__list .commicbook__item').each(function(){
@@ -35,6 +37,21 @@ class Favorite {
                 }
             })
         })
+
+        if($('body').hasClass('detail')){
+            //datail
+            this.favoritesList.forEach(function(item){
+                console.log(item)
+                let $element = $('.js-content-favorite');
+                if($($element).attr('data-id') == item){
+                    _self.isFavorite($element)
+                }
+    
+            })
+        }
+
+
+
     }
     
     removeList(item,id){
@@ -43,7 +60,8 @@ class Favorite {
         if (index > -1) {
             this.favoritesList.splice(index, 1);
             item.removeClass('isFavorite')
-            $(item).find('.fa').removeClass('fa-star-o')
+            $(item).find('.fa').removeClass('fa-star')
+            $(item).find('.fa').addClass('fa-star-o')
         }
         this.readList();
         this.updateListStorage()
@@ -54,6 +72,7 @@ class Favorite {
     }
     
     isFavorite(item) {
+        console.log('teste')
         $(item).addClass('isFavorite')
         $(item).find('.fa').addClass('fa-star')
         $(item).find('.fa').removeClass('fa-star-o')
@@ -74,11 +93,11 @@ class Favorite {
 
     bindEvents(){
         let _self = this;
-        $('body').on('click', '.commicbook__favorite', function(e) {
+        $('body').on('click', '.js-favorite', function(e) {
             e.preventDefault();
             var $this = this
-            var item = $($this).closest('.commicbook__item');
-            var id = $($this).closest('.commicbook__item').attr('data-id')
+            var item = $($this).closest('.js-content-favorite');
+            var id = $($this).closest('.js-content-favorite').attr('data-id')
 
             console.log('data',id)
             console.log('item',item)
