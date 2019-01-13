@@ -1,5 +1,7 @@
 import $ from "jquery";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+// http://www.mocky.io/v2/5c39120f3100005d00a992bf
+// http://www.mocky.io/v2/5c3b3a882e00008600648878
 // http://www.mocky.io/v2/5c3b3d5a2e0000590064887a
 
 
@@ -59,7 +61,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
     }
 
     redirectCatalog(){
-      window.location.replace("http://localhost:9000/catalog.html");
+      window.location.pathname = "/lab/catalog.html"
     }
 
     autoLogin() {
@@ -83,7 +85,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
     logout() {
       localStorage.setItem("logged", "false");
       localStorage.removeItem("loggedUser");
-      window.location.replace("http://localhost:9000");
+      window.location.href = "/lab/index.html"
     }
 
     bindEvents() {
