@@ -1,13 +1,5 @@
 .comicbook {
     $this: &;
-
-    &__titleSection {
-        font-size: 3rem;
-        line-height: 3rem;;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 3rem;
-    }
     
     &__list {
         width: 100%;

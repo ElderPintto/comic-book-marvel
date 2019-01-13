@@ -29,7 +29,7 @@ class Favorite {
         //shelf
         this.favoritesList.forEach(function(item){
             console.log(item)
-            $('.commicbook__list .commicbook__item').each(function(){
+            $('.comicbook__list .comicbook__item').each(function(){
                let $element = this
                
                 if($($element).attr('data-id') == item){
@@ -43,6 +43,7 @@ class Favorite {
             this.favoritesList.forEach(function(item){
                 console.log(item)
                 let $element = $('.js-content-favorite');
+                console.log($element)
                 if($($element).attr('data-id') == item){
                     _self.isFavorite($element)
                 }
