@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const comics = [
+const api = [
     {
       "id": 74774,
       "digitalId": 0,

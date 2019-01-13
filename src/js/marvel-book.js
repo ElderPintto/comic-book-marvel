@@ -1,6 +1,7 @@
 import $ from "jquery";
 import CryptoJS from "crypto-js";
-import api from "./api";
+import comics  from "./comics";
+import characters from "./characters";
 
 class BooksMarvel {
   constructor() {
@@ -49,13 +50,13 @@ class BooksMarvel {
 
   getComicId() {
     var id = localStorage.getItem('idComic')
-    $('.js-content-favorite').attr('data-id', id)
+
+    this.renderproduct(id)
   }
 
-  render() {
+  renderCatalog() {
   
-    let books = api.forEach(function(item,index){
-        console.log(item)
+    comics.forEach(function(item,index) {
         let b = `
         <li class="comicbook__item js-content-favorite col-12 col-sm-6 col-md-4 col-lg-3" data-id="${item.id}">
             <a href="/detail.html" class="comicbook__link">
@@ -72,11 +73,57 @@ class BooksMarvel {
     })
   }
 
+  renderproduct(id) {
+    console.log(characters)
+    let book = comics.filter(function(item,index) {
+ 
+
+      if(item.id == id){
+        console.log('book', item)
+        var b = `
+        <div class="detail__infoArea detail__infoArea--img js-content-favorite col col-12 col-md-6" data-id="${item.id}">
+        <i class="fa fa-star-o detail__favorite comicbook__favorite js-favorite"></i>
+        <figure>
+            <img src="${item.thumbnail.path}.${item.thumbnail.extension}" alt="${item.thumbnail.path}">
+        </figure>
+    </div>
+    <div class="detail__infoArea--description col col-12 col-md-6">
+       <h1 class="detail__titleSection titleSection col col-12">
+          ${item.title}
+        </h1>   
+        <div class="detail__description">
+            <p class="detail__text detail__date">January 09, 2019</p>
+            <p class="detail__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur? Incidunt optio nostrum consectetur quaerat rem minus adipisci quis! Ipsam quas dolorem asperiores consequuntur? Voluptates tempora quod temporibus error architecto.
+            </p>
+        </div>
+            <h3 class="detail__title">
+                Characters
+            </h3>
+            <ul class="characters">
+              ${characters.map((character, i) => `
+              
+                <li class="characters__item">
+                    <figure class="characters__img"><img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.thumbnail.path}"></figure>
+                    <p class="characters__name">${character.name}</p>
+                </li>
+              `.trim()).join('')}
+            </ul>
+    </div>
+        
+        `
+      }
+
+      $('.detail__info .row').append(b)
+    })
+
+    
+  }
+
   bindEvents() {
     let _self = this
     $('body').on('click', '.comicbook__link' , function(e){
       e.preventDefault();
-      alert(1)
       var $this = this
       var id = $($this).closest('.comicbook__item').attr('data-id')
 
@@ -86,7 +133,7 @@ class BooksMarvel {
 
   init() {
     this.bindEvents();
-    this.render();
+    this.renderCatalog();
 
     if($('body').hasClass('detail')){
       this.getComicId();
