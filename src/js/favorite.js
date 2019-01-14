@@ -28,7 +28,6 @@ class Favorite {
 
         //shelf
         this.favoritesList.forEach(function(item){
-            console.log(item)
             $('.comicbook__list .comicbook__item').each(function(){
                let $element = this
                
@@ -41,9 +40,7 @@ class Favorite {
         if($('body').hasClass('detail')){
             //datail
             this.favoritesList.forEach(function(item){
-                console.log(item)
                 let $element = $('.js-content-favorite');
-                console.log($element)
                 if($($element).attr('data-id') == item){
                     _self.isFavorite($element)
                 }
@@ -69,11 +66,9 @@ class Favorite {
     }
     
     readList(){
-        console.log('favorited', this.favoritesList);
     }
     
     isFavorite(item) {
-        console.log('teste')
         $(item).addClass('isFavorite')
         $(item).find('.fa').addClass('fa-star')
         $(item).find('.fa').removeClass('fa-star-o')
@@ -100,8 +95,6 @@ class Favorite {
             var item = $($this).closest('.js-content-favorite');
             var id = $($this).closest('.js-content-favorite').attr('data-id')
 
-            console.log('data',id)
-            console.log('item',item)
             
             if(!_self.favoritesList.includes(id)){
                 _self.addList(item,id)

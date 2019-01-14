@@ -15,8 +15,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
       fetch("http://www.mocky.io/v2/5c3b3d5a2e0000590064887a")
       .then(response => response.json()) // retorna uma promise
       .then(result => {
-        console.log('getUsers',result)
-
         this.validadeUser(result, username, password)
       })
       .catch(err => {
@@ -31,8 +29,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
       users.forEach(function(element) {
 
         if (username == element.username && password == element.password) {
-          console.log(element.username + " is logged in!!!");
-
           _self.localSpeople.push({
             username: element.username,
             password: element.password
@@ -83,7 +79,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
     logout() {
       localStorage.setItem("logged", "false");
       localStorage.removeItem("loggedUser");
-      window.location.replace("http://localhost:9000");
+      window.location.replace("./");
     }
 
     bindEvents() {
@@ -96,9 +92,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
         e.preventDefault();
         let valName = $username.val();
         let valPass = $password.val();
-
-        console.log(valName)
-        console.log(valPass)
 
         _self.getUsers(valName, valPass);
       });
