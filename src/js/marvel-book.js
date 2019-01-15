@@ -10,7 +10,7 @@ class BooksMarvel {
   }
 
   // getbooks() {
-  //   var PRIV_KEY = "c6421b1592ee214e13e7e024c2a9bf3fc794a29e";
+  //   var PRIV_KEY = "add"";
   //   var PUBLIC_KEY = "b2bfb8fe90813539f191d562708d3783";
 
   //   // you need a new ts every request
@@ -74,12 +74,8 @@ class BooksMarvel {
   }
 
   renderproduct(id) {
-    console.log(characters)
     let book = comics.filter(function(item,index) {
- 
-
       if(item.id == id){
-        console.log('book', item)
         var b = `
         <div class="detail__infoArea detail__infoArea--img js-content-favorite col col-12 col-md-6" data-id="${item.id}">
         <i class="fa fa-star-o detail__favorite comicbook__favorite js-favorite"></i>
@@ -101,15 +97,23 @@ class BooksMarvel {
                 Characters
             </h3>
             <ul class="characters">
-              ${characters.map((character, i) => `
-              
-                <li class="characters__item">
-                    <figure class="characters__img"><img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.thumbnail.path}"></figure>
-                    <p class="characters__name">${character.name}</p>
-                </li>
-              `.trim()).join('')}
+              ${characters.map((character, i) => {
+                
+                  if(character.id == id) {
+                    return `<li class="characters__item">
+                        <figure class="characters__img"><img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.thumbnail.path}"></figure>
+                        <p class="characters__name">${character.name}</p>
+                    </li>
+                    `.trim()
+                  } 
+
+                  return
+        
+                }).join('')
+                
+              }
             </ul>
-    </div>
+        </div>
         
         `
       }

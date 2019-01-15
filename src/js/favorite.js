@@ -105,6 +105,7 @@ class Favorite {
         })
     }
 
+
     init() {
         this.getListStorage();
         this.renderStatusFavorited();
