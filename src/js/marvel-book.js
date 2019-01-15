@@ -50,27 +50,30 @@ class BooksMarvel {
 
   getComicId() {
     var id = localStorage.getItem('idComic')
-
     this.renderproduct(id)
   }
 
   renderCatalog() {
   
-    comics.forEach(function(item,index) {
-        let b = `
-        <li class="comicbook__item js-content-favorite col-12 col-sm-6 col-md-4 col-lg-3" data-id="${item.id}">
-            <a href="/detail.html" class="comicbook__link">
-                <img src="${item.thumbnail.path}.${item.thumbnail.extension}" alt="img" class="comicbook__img">
-                <span class="comicbook__title">${item.title}</span>
-                <span class="comicbook__date"></span>
-            </a>
-            <i class="fa fa-star-o comicbook__favorite  js-favorite"></i>
-        </li>
-        
-        `
 
-        $('.comicbook__list').append(b)
-    })
+    if($('body').hasClass('catalog')){
+
+      comics.forEach(function(item,index) {
+          let b = `
+          <li class="comicbook__item js-content-favorite col-12 col-sm-6 col-md-4 col-lg-3" data-id="${item.id}">
+              <a href="/detail.html" class="comicbook__link">
+                  <img src="${item.thumbnail.path}.${item.thumbnail.extension}" alt="img" class="comicbook__img">
+                  <span class="comicbook__title">${item.title}</span>
+                  <span class="comicbook__date"></span>
+              </a>
+              <i class="fa fa-star-o comicbook__favorite  js-favorite"></i>
+          </li>
+          
+          `
+  
+          $('.comicbook__list').append(b)
+      })
+    }
   }
 
   renderproduct(id) {

@@ -41,9 +41,21 @@
         }
     }
 
-}
+    &__link {
+        color: var(--warning);
+        display: flex;
+        align-items: center;
+        margin: 0 3rem;
+        &:hover {
+            color: var(--warning);
+        }
+        i {
+            display: inline-block;
+            
+            &:before{
+                margin: 0 5px;
+            }
+        }
+    }
 
-.main {
-    margin: 3rem 0;
-    height: auto;
 }

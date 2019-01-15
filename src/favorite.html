@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="catalog">
+<body class="favorite">
     <div class="header">
             <div class="container">
                 <div class="row">
@@ -26,9 +26,6 @@
                     </div>
     
                     <div class="header__form col col-12 col-md-12 col-lg-10">
-                            <a href="/favorite.html" class="header__link">
-                                <i class="fa fa-star  comicbook__favorite--float">Favorite list</i>
-                            </a>
                         <form class="form formLogin form-inline">
                             <div class="form-row">
                                 <div class="form-group formLogin__item">
@@ -44,13 +41,16 @@
             <section class="container">
                 <div class="row">
                     <header>
-                        <h1 class="comicbook__titleSection titleSection col-12">
-                            Comic Books
+                        <h1 class="comicbook__titleSection titleSection col-lg-10">
+                            Favorite Comic Books
                         </h1>
+                        <a href="/catalog.html" class="col-lg-2">
+                            Voltar para o catalogo
+                        </a>
                     </header>
 
                     <div class="comicbook ">
-                        <ul class="comicbook__list row">
+                        <ul class="comicbook__list row js-favoriteList">
 
                         </ul>
         
